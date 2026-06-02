@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Sign Up</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/events">Events</a>
+      <a href="/contact">Contact</a>
+      <a href="/login">Login</a>
+    </nav>
+  </header>
+
+  <main class="container narrow">
+    <% if (error) { %>
+      <p class="error-message"><%= error %></p>
+    <% } %>
+
+    <form class="form needs-validation" action="/signup" method="POST" novalidate>
+      <label>
+        Name
+        <input type="text" name="name" required>
+      </label>
+
+      <label>
+        Email
+        <input type="email" name="email" required>
+      </label>
+
+      <label>
+        Password
+        <div class="input-group">
+          <input type="password" name="password" data-password-input minlength="6" required>
+          <button class="button secondary" type="button" data-toggle-password>Show</button>
+        </div>
+        <span class="form-hint" data-password-strength>Password strength: Weak</span>
+      </label>
+
+      <button class="button" type="submit">Create Account</button>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <p>Event Management System</p>
+  </footer>
+  <script src="/js/main.js"></script>
+</body>
+</html>
